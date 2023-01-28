@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects let i =index">
+      <div class="card">
+          <div class="card-body">
+              <h2>{{project.name}}</h2>
+              <p> Areas : {{project.Areas}}</p>
+              <img src="assets/images/{{project.image}}" alt="">
+              <br>
+              <button class="btn btn-primary" routerLink="/projects/{{project._id}}">Single project</button>
+          </div>
+      </div>
+  </div>
+</div>

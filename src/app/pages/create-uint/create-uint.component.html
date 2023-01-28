@@ -1,0 +1,43 @@
+<form class="row gy-4" #uintform="ngForm" (ngSubmit)="handellAddUint(uintform)">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="buildId"  required name="buildId"[(ngModel)]="model.buildId"  #buildId="ngModel">
+    <div class="alert alert-danger" *ngIf="uintform.submitted && buildId.errors?.['required']">buildId
+      <p >buildId is required</p>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="unitNumber"  required name="unitNumber"[(ngModel)]="model.unitNumber"  #unitNumber="ngModel">
+    <div class="alert alert-danger" *ngIf="uintform.submitted && unitNumber.errors?.['required']">
+      <p >unitNumber is required</p>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="price"  required name="price"[(ngModel)]="model.price"  #price="ngModel">
+    <div class="alert alert-danger" *ngIf="uintform.submitted && price.errors?.['required']">
+      <p >price is required</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="area"  name="area"[(ngModel)]="model.area"  #area="ngModel">
+    <div class="alert alert-danger" *ngIf="uintform.submitted && area.errors?.['required']">
+      <p >area is required</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="file" class="form-control" placeholder="image"  required name="image"[(ngModel)]="model.image"  (change)="handelChange($event)" #image="ngModel">
+    <div class="alert alert-danger" *ngIf="uintform.submitted && image.errors?.['required']">
+      <p >image is required</p>
+    </div>
+  </div>
+
+  <div  class="alert alert-danger" *ngIf="errFlag">
+    {{errMsg}}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">add build</button>
+  </div>
+
+</form>
+

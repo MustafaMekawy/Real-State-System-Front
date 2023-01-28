@@ -1,0 +1,15 @@
+
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let building of buildings let i =index">
+      <div class="card">
+          <div class="card-body">
+              <h2> Build Number:{{building.buildNum}}</h2>
+              <p> Area : {{building.area}}</p>
+              <p> number of floors : {{building.numoffloors}}</p>
+              <p> number of uints: {{building.numofuints}}</p>
+              <img src="assets/images/{{building.image}}" alt="">
+              <button class="btn btn-primary" routerLink="/buildings/{{building._id}}">Single building</button>
+          </div>
+      </div>
+  </div>
+</div>

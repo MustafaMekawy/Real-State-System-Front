@@ -1,0 +1,42 @@
+create pages*
+
+get apis pages{
+  allprojects*
+  allbuilds*
+  alluints*
+  project*
+  build*
+  uint*
+  profile*
+  alluintsbought*
+  alluintsavalible*
+  my uints*
+  my payments*
+
+}
+post apis forms{
+  rejester*
+  login*
+  editpass*
+  forgetpass
+  resetpass
+  edit profile
+  update image
+  addproject*
+  addbuild*
+  adduint*
+  buyuint*
+  addقسط*
+  delete any user
+  create role
+  addurl
+  generatepdf
+  }
+  buttons{
+    logout*
+    delete account
+    change stats
+
+
+  }
+desein

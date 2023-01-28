@@ -1,0 +1,17 @@
+<div class="row">
+  <h2 *ngIf ="myPayment.length==0"> you dont have  payments yet</h2>
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let payment of myPayment let i =index">
+      <div class="card">
+          <div class="card-body">
+              <h5> uintId : {{payment.uintId}}</h5>
+              <p> payment : {{payment.payment}}</p>
+              <p> employeeId : {{payment.employeeId}}</p>
+              <!-- <p *ngFor="let rest of rests">
+                restofthepayments: {{payment.restofthepayments|json}}
+              </p> -->
+              <p > restofthepayments : {{payment.restofthepayments|json}}</p>
+              <br>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<form class="row gy-3" #registerform="ngForm" (ngSubmit)="handleSubmit(registerform)">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="firstName" required minlength="3" name="firstName" [(ngModel)]="model.fName" #firstName="ngModel">
+    <div class="alert alert-danger" *ngIf="firstName.invalid&&(registerform.submitted ||firstName.dirty)">
+           <p *ngIf="firstName.errors?.['required']">firstName is required</p>
+           <p *ngIf="firstName.errors?.['minlength']">minlength is 2 </p>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <input type="text"class="form-control"  placeholder="lastName" name="lastName" required minlength="3"[(ngModel)]="model.lName"  #lastName="ngModel">
+    <div class="alert alert-danger" *ngIf="lastName.invalid&& (registerform.submitted||lastName.dirty)">
+      <p *ngIf="lastName.errors?.['required']">LastName is required</p>
+      <p *ngIf="lastName.errors?.['minlength']"> minlength is 2</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="email" class="form-control" placeholder="email" email  required name="email"[(ngModel)]="model.email"  #email="ngModel">
+    <div class="alert alert-danger" *ngIf="email.invalid&& (registerform.submitted||email.dirty)">
+      <p *ngIf="email.errors?.['required']">email is required</p>
+      <p *ngIf="email.errors?.['email']"> must be tyoe email </p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="password" class="form-control" placeholder="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required [(ngModel)]="model.password"  #password="ngModel">
+    <h3>{{password.value}}</h3>
+    <div class="alert alert-danger" *ngIf="password.invalid&& (registerform.submitted||password.dirty)">
+      <p *ngIf="password.errors?.['required']">password is required</p>
+      <p *ngIf="password.errors?.['pattern']">password that must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="password" class="form-control" placeholder="passwordConfirmation" name="passwordConfirmation"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required [(ngModel)]="model.passwordConfirmation"  #passwordConfirmation="ngModel">
+
+    <div class="alert alert-danger" *ngIf="passwordConfirmation.value!=password.value&& passwordConfirmation.dirty">
+      <p *ngIf="passwordConfirmation.errors?.['required']">passwordConfirmation is required</p>
+      <p *ngIf="passwordConfirmation!=password">passwordConfirmation not match password</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="roleId" required name="roleId"[(ngModel)]="model.roleId"  #roleId="ngModel">
+    <div class="alert alert-danger" *ngIf="errFlag">
+      <p *ngIf="roleId.errors?.['required']">roleId is required</p>
+      <p *ngIf="errMSg">cant add role expect custmoer rol</p>
+    </div>
+
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">register</button>
+  </div>
+
+</form>

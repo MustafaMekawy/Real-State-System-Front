@@ -1,0 +1,15 @@
+<div class="row">
+  <h2 *ngIf ="uintsbought.length==0"> sorry no uints avalible</h2>
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let uint of uintsbought let i =index">
+      <div class="card">
+          <div class="card-body">
+              <h3> price : {{uint.price}}</h3>
+              <p> buildId : {{uint.buildId}}</p>
+              <p> avalible : {{uint.avalible}}</p>
+              <img src="assets/images/{{uint.image}}" alt="">
+              <br>
+              <button class="btn btn-primary" routerLink="/uints/{{uint._id}}">Single uint</button>
+          </div>
+      </div>
+  </div>
+</div>

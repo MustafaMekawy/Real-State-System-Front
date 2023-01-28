@@ -1,0 +1,39 @@
+<form class="row gy-4" #buyUintform="ngForm" (ngSubmit)="handellBuyUint(buyUintform)">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="uint id"  required name="uint"[(ngModel)]="model.uint"  #uint="ngModel">
+    <div class="alert alert-danger" *ngIf="buyUintform.submitted && uint.errors?.['required']">uint
+      <p >uint is required</p>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="customer id"  required name="customer"[(ngModel)]="model.customer"  #customer="ngModel">
+    <div class="alert alert-danger" *ngIf="buyUintform.submitted && customer.errors?.['required']">
+      <p >customer is required</p>
+    </div>
+  </div>
+
+
+  <div class="col-6">
+    <label>payment method </label>
+  <form >
+      <input type="radio" value="cash" name="payment" required [(ngModel)]="model.payment"  #payment="ngModel">
+      <label for="cash">cash</label><br>
+
+      <input type="radio" value="semi-yearly" name="payment"required [(ngModel)]="model.payment"  #payment="ngModel">
+      <label for="semi-yearly">semi-yearly</label><br>
+
+    <input type="radio" value="quarter-yearly" name="payment"required [(ngModel)]="model.payment"  #payment="ngModel">
+      <label for="quarter-yearly">quarter-yearly</label><br>
+    </form>
+  </div>
+
+  <div  class="alert alert-danger" *ngIf="errFlag">
+    {{errMsg}}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">buy uint</button>
+  </div>
+
+</form>
+

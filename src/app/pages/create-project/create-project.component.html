@@ -1,0 +1,46 @@
+<form class="row gy-4" #projectform="ngForm" (ngSubmit)="handellAddUint(projectform)">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="name"  required name="name"[(ngModel)]="model.name"  #name="ngModel">
+    <div class="alert alert-danger" *ngIf="projectform.submitted && name.errors?.['required']">
+      <p >name is required</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <label>projectType </label>
+  <form >
+      <input type="radio" id="buy"  value="buy" name="projectType" required [(ngModel)]="model.projectType"  #projectType="ngModel">
+      <label for="buy">buy</label><br>
+      <input type="radio"  id="show" value="show" name="projectType"required [(ngModel)]="model.projectType"  #projectType="ngModel" >
+      <label for=" show">show</label><br>
+    </form>
+  </div>
+  <!-- <div class="col-6">
+    <input type="text" class="form-control" placeholder="projectType"  required name="projectType"[(ngModel)]="model.projectType"  #projectType="ngModel">
+    <div class="alert alert-danger" *ngIf="projectform.submitted && projectType.errors?.['required']">
+      <p >projectType is required</p>
+    </div>
+  </div> -->
+
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="Areas"  name="Areas"[(ngModel)]="model.Areas"  #Areas="ngModel">
+    <div class="alert alert-danger" *ngIf="projectform.submitted && Areas.errors?.['required']">
+      <p >Areas is required</p>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <input type="file" class="form-control" placeholder="image"  required name="image"[(ngModel)]="model.image"  (change)="handelChange($event)" #image="ngModel">
+    <div class="alert alert-danger" *ngIf="projectform.submitted && image.errors?.['required']">
+      <p >image is required</p>
+    </div>
+  </div>
+
+  <div  class="alert alert-danger" *ngIf="errFlag">
+    {{errMsg}}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">add build</button>
+  </div>
+
+</form>
+

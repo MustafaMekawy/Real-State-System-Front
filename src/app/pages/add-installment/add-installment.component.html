@@ -1,0 +1,23 @@
+<form class="row gy-4" #buyUintform="ngForm" (ngSubmit)="handellInstallment(buyUintform)">
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="customer id"  required name="customer"[(ngModel)]="model.customer"  #customer="ngModel">
+    <div class="alert alert-danger" *ngIf="buyUintform.submitted && customer.errors?.['required']">
+      <p >customer is required</p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="text" class="form-control" placeholder="uint id"  required name="uint"[(ngModel)]="model.uint"  #uint="ngModel">
+    <div class="alert alert-danger" *ngIf="buyUintform.submitted && uint.errors?.['required']">uint
+      <p >uint is required</p>
+    </div>
+  </div>
+
+  <div  class="alert alert-danger" *ngIf="errFlag">
+    {{errMsg}}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">addInstallment</button>
+  </div>
+
+</form>
+

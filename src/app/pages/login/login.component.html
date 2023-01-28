@@ -1,0 +1,22 @@
+<form class="row gy-4" #loginform="ngForm" (ngSubmit)="handellogin(loginform)">
+  <div class="col-6">
+    <input type="email" class="form-control" placeholder="email" email  required name="email"[(ngModel)]="model.email"  #email="ngModel">
+    <div class="alert alert-danger" *ngIf="email.invalid&& (loginform.submitted||email.dirty)">
+      <p *ngIf="email.errors?.['required']">email is required</p>
+      <p *ngIf="email.errors?.['email']"> must be tyoe email </p>
+    </div>
+  </div>
+  <div class="col-6">
+    <input type="password" class="form-control" placeholder="password" name="password"  required [(ngModel)]="model.password"  #password="ngModel">
+    <div class="alert alert-danger" *ngIf="password.invalid&& (loginform.submitted||password.dirty)">
+      <p *ngIf="password.errors?.['required']">password is required</p>
+</div>
+  </div>
+  <div  class="alert alert-danger" *ngIf="errFlag">
+    {{errMsg}}
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary">login</button>
+  </div>
+
+</form>

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container">
+    <a class="navbar-brand" ></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="projects">projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="buildings">buildings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="uints">uints</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="register">register</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin==false">
+          <a class="nav-link " routerLink="login">login</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="profile">profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="allUintsAvalible">UintsAvalible</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="allUintsBought">UintsBought</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="myUints">myUints</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="myPayments">myPayments</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="changePassword">changePassword</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="addProject">addProject</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="addBuild">addBuild</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="addUint">addUint</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="buyUint">buyUint</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " routerLink="addInstallment">addInstallment</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.islogin">
+          <a class="nav-link " (click)="hanelLogOut()">logOut</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
